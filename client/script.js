@@ -5,10 +5,10 @@ const form = document.querySelector("form");
 const chatContainer = document.querySelector("#chat_container");
 
 let loadInterval;
-
+//loader func takes in an element as its argument, and sets its text content to an empty string
 function loader(element) {
   element.textContent = "";
-
+//set loadInterval to the value returned by setInterval, which will execute the anonymous func inside it every 300 ms
   loadInterval = setInterval(() => {
     // Update the text content of the loading indicator
     element.textContent += ".";
@@ -43,7 +43,7 @@ function generateUniqueId() {
 
   return `id-${timestamp}-${hexadecimalString}`;
 }
-
+//func to get the unique id and value then display them as a message,message is "Howdy partner"
 function chatStripe(isAi, value, uniqueId) {
   return `
         <div class="wrapper ${isAi && "ai"}">
@@ -109,7 +109,8 @@ const handleSubmit = async (e) => {
     alert(err);
   }
 };
-
+//useful nums 13: Enter key, 32: Spacebar, 8: Backspace, 9: Tab, 27: Escape, 37: Left arrow, 38: Up arrow, 39: Right arrow,
+//40: Down arrow, 46: Delete, 65-90: A-Z (capital letters), 48-57: 0-9 (numbers)
 form.addEventListener("submit", handleSubmit);
 form.addEventListener("keyup", (e) => {
   if (e.keyCode === 13) {
